@@ -19,7 +19,12 @@ export function getProductPrimaryImage(
   brokenImages: Record<string | number, boolean> = {},
 ): string {
   const primaryObj = prod?.images?.find((i) => i.is_primary) || prod?.images?.[0]
-  const rawUrl = primaryObj?.url || primaryObj?.image_url || prod?.image_url || prod?.image
+  const rawUrl =
+    primaryObj?.imageUrl ||
+    primaryObj?.url ||
+    primaryObj?.image_url ||
+    prod?.image_url ||
+    prod?.image
   const key = prod?.id ?? primaryObj?.id
   if (rawUrl && (key === undefined || !brokenImages[key])) {
     const resolved = resolveImageUrl(rawUrl)

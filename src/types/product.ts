@@ -10,7 +10,10 @@ export interface ProductImage {
   id: number | string
   productId?: number | string
   image_url?: string
+  imageUrl?: string
   url?: string
+  fileName?: string | null
+  publicId?: string | null
   is_primary?: boolean
   createdAt?: string
   updatedAt?: string
